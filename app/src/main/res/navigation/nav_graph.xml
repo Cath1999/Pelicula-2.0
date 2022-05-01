@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/menuFragment">
+
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="ni.edu.uca.peliculas.fragments.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/menu_a_listanac"
+            app:destination="@id/listaNacionalidadFragment" />
+        <action
+            android:id="@+id/menu_a_listaidm"
+            app:destination="@id/listaIdiomaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listaNacionalidadFragment"
+        android:name="ni.edu.uca.peliculas.fragments.lista.ListaNacionalidadFragment"
+        android:label="fragment_lista_nacionalidad"
+        tools:layout="@layout/fragment_lista_nacionalidad" >
+        <action
+            android:id="@+id/agregar_nacionalidad"
+            app:destination="@id/nuevaNacionalidadFragment" />
+        <action
+            android:id="@+id/actualizar_nacionalidad"
+            app:destination="@id/actualizarNacionalidadFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listaIdiomaFragment"
+        android:name="ni.edu.uca.peliculas.fragments.lista.ListaIdiomaFragment"
+        android:label="fragment_lista_idioma"
+        tools:layout="@layout/fragment_lista_idioma" >
+        <action
+            android:id="@+id/agregar_idioma"
+            app:destination="@id/nuevoIdiomaFragment" />
+        <action
+            android:id="@+id/actualizar_idioma"
+            app:destination="@id/actualizarIdiomaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nuevaNacionalidadFragment"
+        android:name="ni.edu.uca.peliculas.fragments.agregar.NuevaNacionalidadFragment"
+        android:label="fragment_nueva_nacionalidad"
+        tools:layout="@layout/fragment_nueva_nacionalidad" >
+        <action
+            android:id="@+id/devolver_nuevanac"
+            app:destination="@id/listaNacionalidadFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nuevoIdiomaFragment"
+        android:name="ni.edu.uca.peliculas.fragments.agregar.NuevoIdiomaFragment"
+        android:label="fragment_nuevo_idioma"
+        tools:layout="@layout/fragment_nuevo_idioma" >
+        <action
+            android:id="@+id/devolver_nuevoid"
+            app:destination="@id/listaIdiomaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/actualizarNacionalidadFragment"
+        android:name="ni.edu.uca.peliculas.fragments.actualizar.ActualizarNacionalidadFragment"
+        android:label="fragment_actualizar_nacionalidad"
+        tools:layout="@layout/fragment_actualizar_nacionalidad" >
+        <action
+            android:id="@+id/devolver_acNac"
+            app:destination="@id/listaNacionalidadFragment" />
+        <argument
+            android:name="currentNacionalidad"
+            app:argType="ni.edu.uca.peliculas.entidades.Nacionalidad" />
+    </fragment>
+    <fragment
+        android:id="@+id/actualizarIdiomaFragment"
+        android:name="ni.edu.uca.peliculas.fragments.actualizar.ActualizarIdiomaFragment"
+        android:label="fragment_actualizar_idioma"
+        tools:layout="@layout/fragment_actualizar_idioma" >
+        <action
+            android:id="@+id/devolver_acId"
+            app:destination="@id/listaIdiomaFragment" />
+        <argument
+            android:name="currentIdioma"
+            app:argType="ni.edu.uca.peliculas.entidades.Idioma" />
+    </fragment>
+</navigation>
